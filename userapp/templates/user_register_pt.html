@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Global Medifile </title>
+        <!-- Meta tags -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Gaze Sign up & login Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+        <script>
+        addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+        </script>
+        <!-- Meta tags -->
+        <!--stylesheets-->
+        <link href="/static/login/css/style.css" rel='stylesheet' type='text/css' media="all">
+        <!--//style sheet end here-->
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+
+        </head>
+
+    <body>
+        <div class="mid-class">
+        <div class="art-right-w3ls">
+            <h2>Registration</h2>
+            <img id="output_image" style="width:150px;height:150px;">
+            <form action="#" method="post" class="appointment-form00 row" enctype="multipart/form-data" onSubmit = "return checkPassword1(this)">
+                {% csrf_token %}
+
+                <!-- Preview Image-->
+                <script type='text/javascript'>
+                    function preview_image(event) 
+                    {
+                    var reader = new FileReader();
+                    reader.onload = function()
+                    {
+                    var output = document.getElementById('output_image');
+                    output.src = reader.result;
+                    }
+                    reader.readAsDataURL(event.target.files[0]);
+                    }
+                </script>
+                <!-- End Preview Image-->
+
+                <div class="form-left-to-w3l">
+                    <input type="file" name="img" accept="image/*" onchange="preview_image(event)" required>
+                </div>
+                <br>
+                <div class="main">
+                    <div class="form-left-to-w3l">
+                    <label for="">User Name</label>
+                    <input type="text" name="name" placeholder="Username" style="text-transform: capitalize;" required="">
+                    </div>
+                <div class="form-left-to-w3l">
+                <label for="">Email</label>
+                    <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email">
+                </div>
+                <div class="form-left-to-w3l">
+                    <label for="">Age</label>
+                        <input type="number" name="age" placeholder="Age" required="">
+                    </div>
+
+                <div class="form-left-to-w3l" >Gender* : &nbsp;&nbsp;
+                                
+                    <input type="radio" name="gender" placeholder="" value="Male" required>Male&nbsp;
+                    <input type="radio" name="gender"  placeholder="" value="Female" required>Female &nbsp;  
+                    <input type="radio" name="gender"  placeholder="" value="Unknown" required>Unknown  &nbsp;
+                </div>
+                <br><br>
+
+                <div class="form-left-to-w3l">
+                    <label for="">Date of Birth</label>
+                        <input id="datetimepicker" class="date form-control" type="date" name="dob" placeholder="Date Of Birth" required="" title="Date Of Birth">
+                    </div>
+                <div class="form-left-to-w3l">
+                    <label for="">Contact No.</label>
+                        <input type="number" name="phone" placeholder="Contact No" pattern="[0-9]{10}" maxlength="10" required="">
+                </div>
+                    <div class="form-left-to-w3l">
+                        <label for="">Address</label>
+                    <input type="text" name="address" placeholder="Address" required="">
+                </div>
+                <div class="form-left-to-w3l">
+                    <label for="">Voters ID</label>
+                    <input type="text" name="votersid" placeholder="Voters ID">
+                </div>
+                <div class="form-left-to-w3l">
+                    <label id="l1">Adhar Number</label>
+                    <input type="number" name="adharno" id="adharno" pattern="[0-9]{12}" placeholder="Adhar Number" required="">
+                </div>
+                <div class="form-left-to-w3l">
+                    <label for="">LIC Number</label>
+                    <input type="text" name="licno"  placeholder="LIC Number" >
+                </div>
+                <script>
+                //   function aadher()
+                //   {
+                //      debugger;
+                //      var data=document.getElementById("adharno").value;
+                //      if(data=="")
+                //      document.getElementById("l1").innerHTML="pls fill";
+
+                //      else
+                //      document.getElementById("l1").innerHTML="";
+                //   }
+                //   </script>
+                <div id="input" class="form-left-to-w3l">
+                    <label for="">Blood Group</label>
+                    <select id="inlineFormCustomSelect3" name="blood"  type="text" class="custom-select patient" required>
+                        <option value="">Blood Group*</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>O+</option>
+                        <option>O-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                    </select> 
+                    <div class="form-left-to-w3l">
+                        <label for="">Relative Name</label>
+                            <input type="text" name="relative1"  placeholder="Relative 1.."  required>
+                        </div>
+                        <div class="form-left-to-w3l">
+                            <label for="">Relation</label>
+                                <input type="text" name="relation1"  placeholder="Describe Relation..."  required>
+                            </div>
+                        <div class="form-left-to-w3l">
+                            <label for="">Address</label>
+                            <input type="text" name="address1"  placeholder="Address..."required >
+                        </div>
+                        <div class="form-left-to-w3l">
+                            <label for="">Phone Number</label>
+                                <input type="number" name="phone1" placeholder="Contact No" pattern="[0-9]{10}" maxlength="10" required="" required>
+                        </div>
+                        <div class="form-left-to-w3l">
+                            <label for="">Relative Name</label>
+                                <input type="text" name="relative2"  placeholder="Relative 2.." required>
+                        </div>
+                        <div class="form-left-to-w3l">
+                            <label for="">Relation</label>
+                                <input type="text" name="relation1"  placeholder="Describe Relation..." required>
+                            </div>
+                            <div class="form-left-to-w3l">
+                                <label for="">Address</label>
+                                    <input type="text" name="address2"  placeholder="Address..." required>
+                                </div>
+                                <div class="form-left-to-w3l">
+                                    <label for="">Contact Number</label>
+                                        <input type="text" maxlength="10" pattern="[789][0-9]{9}" name="phone2" placeholder="Contact No" pattern="[0-9]{10}" maxlength="10" required="" required>
+                                </div>
+                    
+                </div><br>
+                    <div class="form-left-to-w3l ">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one NUMBER* and one UPPERCASE* and LOWERCASE letter*, and at least 8 or more characters" placeholder="Password" maxlength="20" required="" size="25">
+                    <div class="clear"></div>
+                    </div>
+                    <label style="color: red;" id="l3"></label>
+                    <label style="color: rgb(8, 131, 8);" id="l4"></label>
+                    <div class="form-left-to-w3l ">
+                        <label for="">Conform Password</label>
+                    <input type="password" name="cnf_password" id="cnf_password" placeholder="Confirm Password" maxlength="20" required="" size="25" oninput="msg()" >
+                        <div class="clear"></div>
+                        </div>
+                </div>
+                
+                <div class="left-side-forget">
+                    <input type="checkbox" class="checked">
+                    <span class="remenber-me">Remember me </span>
+                </div>
+                
+                <div class="btn">
+                    <button type="submit" name="reg">Register</button>
+                    {% if g_id %}
+                    <script>
+                    alert('Your GID:{{g_id}}')
+                    </script>
+                    {% endif %}
+                </div>
+                
+                
+            </form>
+            <form method="POST">
+                {% csrf_token %}
+                    <div class="btn" >
+                            <!-- <button type="submit" name="finger">Biometric</button> -->
+                        </div>
+            </form>
+            <div class="w3layouts_more-buttn">
+                    <h3>Already have an account...?
+                    <a href="/user_loginview">LOGIN</a>
+                    </h3>
+                </div>
+            <br>
+            <br>
+
+            
+        </div>
+        <div class="art-left-w3ls">
+            <h1 class="header-w3ls">
+                Register <br>Or<br> Login
+            </h1>
+            <a href="/user_homeview" class="white">Home</a>
+        </div>
+        </div>
+
+    <script>
+    function checkPassword1(form) {
+        debugger;
+        pass3 = form.password.value;
+        pass4 = form.cnf_password.value;
+
+        if(pass3 == pass4){
+            
+            // alert("Registration Successfull.\nYour GLOBAL ID :{{g_id}}");
+        }
+        
+    }
+    </script>
+
+    <script>
+    function msg()
+    {
+        debugger;
+        var a = document.getElementById("password").value;
+        var b = document.getElementById("cnf_password").value;
+        if(a!=b)
+        {
+            document.getElementById("l4").innerHTML = "";
+
+            document.getElementById("l3").innerHTML = "Password doesn't Match.";
+            // alert("error");
+        }
+        else
+        {
+            document.getElementById("l3").innerHTML = "";
+
+            document.getElementById("l4").innerHTML = "Password Matches.";
+            // alert("error");
+        }
+    }
+    </script>
+    <script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
+    </body>
+</html>

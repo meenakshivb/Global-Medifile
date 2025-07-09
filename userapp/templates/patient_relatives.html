@@ -1,0 +1,198 @@
+{% extends 'user_temp.html' %}
+{% block patient_relatives %}
+
+<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="author" content="Jthemes"/>	
+	<meta name="description" content="MedService - Medical & Medical Health Landing Page Template"/>
+	<meta name="keywords" content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			
+	<!-- SITE TITLE -->
+	<title>Global Medifile</title>
+						
+	<!-- FAVICON AND TOUCH ICONS  -->
+	<link rel="shortcut icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="152x152" href="/static/user/images/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/static/user/images/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/static/user/images/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" href="/static/user/images/apple-touch-icon.png">
+
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"> 	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet"> 
+
+	<!-- BOOTSTRAP CSS -->
+	<link href="/static/user/css/bootstrap.min.css" rel="stylesheet">
+			
+	<!-- FONT ICONS -->
+	<!-- <link href="../../../../use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet" crossorigin="anonymous">-->		
+	<link href="/static/user/css/flaticon.css" rel="stylesheet">
+
+	<!-- PLUGINS STYLESHEET -->
+	<link href="/static/user/css/menu.css" rel="stylesheet">	
+	<link id="effect" href="/static/user/css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+	<link href="/static/user/css/magnific-popup.css" rel="stylesheet">	
+	<link href="/static/user/css/owl.carousel.min.css" rel="stylesheet">
+	<link href="/static/user/css/owl.theme.default.min.css" rel="stylesheet">
+	<link href="/static/user/css/animate.css" rel="stylesheet">
+	<link href="/static/user/css/jquery.datetimepicker.min.css" rel="stylesheet">
+			
+	<!-- TEMPLATE CSS -->
+	<link href="/static/user/css/style.css" rel="stylesheet">
+	
+	<!-- RESPONSIVE CSS -->
+	<link href="/static/user/css/responsive.css" rel="stylesheet"> 
+
+<section id="contacts-2" class="wide-60 contacts-section division">				
+        
+                <!-- APPOINTMENT PAGE
+        ============================================= -->
+        <div id="appointment-page" class="wide-60 appointment-page-section division">
+            <div class="container col-lg-9">
+                 <!-- <div class="row"> -->
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="col-lg-10 form-btn">  
+                            <input type="submit" name="view_detail" class="btn btn-blue blue-hover submit" value="View Details">
+                        </div>
+                    </form>
+                    <script>
+                        function onButtonClick(){
+                            document.getElementById('textInput').className="show";
+                            // document.getElementById('textInput1').className="show";
+                            }
+                    </script>
+                    <style>
+                        .hide{
+                            display:none;
+                            }
+                            .show{
+                            display:block;
+                            }
+                    </style>
+    
+    
+                     <!-- PATIENT DETAILS -->
+                     <div class="col-lg-10 border" >
+                         <div class="txt-block pr-30">
+    
+                             <!-- Title -->
+                            <h3 class="h3-md steelblue-color">Your Profile</h3>
+    
+                            <!-- APPOINTMENT FORM -->
+                            <div id="appointment-form-holder" class="text-center row appointment-form00"><br><br>
+                                <form name="appointmentform00" class="row appointment-form00" method="POST" enctype="multipart/form-data" onsubmit="return checkPassword(this);">
+    
+                                    {% csrf_token %}
+    
+                                    <!-- Preview Image-->
+                                    <script type='text/javascript'>
+                                        function preview_image(event) 
+                                        {
+                                         var reader = new FileReader();
+                                         reader.onload = function()
+                                         {
+                                          var output = document.getElementById('output_image');
+                                          output.src = reader.result;
+                                         }
+                                         reader.readAsDataURL(event.target.files[0]);
+                                        }
+                                    </script>
+                                    <!-- End Preview Image-->
+    
+                                     <!-- Contact Form Input -->
+                                    <!-- <div id="input" class="col-lg-12">
+                                        <input type="file" name="img" accept="image/*" onchange="preview_image(event)"  required>
+                                    </div> -->
+                                    
+                                    <div id="input-name" class="col-lg-12">
+                                            <input type="text" name="name"  class="form-control name" placeholder="Name : " style="text-transform: capitalize;" value ="  NAME  : {{data.0.9}}" readonly> 
+                                    </div>
+                                    <div id="input-name" class="col-lg-12">
+                                            <input type="text" name=""  class="form-control name" placeholder="Global ID  : " style="text-transform: capitalize;" value ="  Global ID  : {{data.0.0}}" readonly> 
+                                    </div>
+                                    <p>Relative 1 :</p>
+                                    
+                                    <div id="input-name" class="col-lg-12">
+                                            <input type="text" name=""  class="form-control name" placeholder="Global ID  : " style="text-transform: capitalize;" value ="  Relative  :{{data.0.1}}" readonly> 
+                                    </div><div id="input-name" class="col-lg-12">
+                                            <input type="text" name=""  class="form-control name" placeholder="Global ID  : " style="text-transform: capitalize;" value ="  Relation  : {{data.0.2}}" readonly> 
+                                    </div>
+                                    <div id="input-name" class="col-lg-12">
+                                            <input type="text" name=""  class="form-control name" placeholder="Global ID  : " style="text-transform: capitalize;" value ="  Address  : {{data.0.3}}" readonly> 
+                                    </div>
+                                    <div id="input-name" class="col-lg-12">
+                                            <input type="text" name=""  class="form-control name" placeholder="Global ID  : " style="text-transform: capitalize;" value ="  Phone  : {{data.0.4}}" readonly> 
+                                    </div>
+
+                                    <p>Relative 2 :</p>
+                                    <div id="input-name" class="col-lg-12">
+                                        <input type="text" name=""  class="form-control name" placeholder="Global ID  : " style="text-transform: capitalize;" value =" Relative  : {{data.0.5}}" readonly> 
+                                    </div>
+                                    <div id="input-name" class="col-lg-12">
+                                            <input type="text" name=""  class="form-control name" placeholder="Global ID  : " style="text-transform: capitalize;" value ="  Relation  : {{data.0.6}}" readonly> 
+                                    </div>
+                                    <div id="input-name" class="col-lg-12">
+                                            <input type="text" name=""  class="form-control name" placeholder="Global ID  : " style="text-transform: capitalize;" value ="  Address  : {{data.0.7}}" readonly> 
+                                    </div>
+                                    <div id="input-name" class="col-lg-12">
+                                            <input type="text" name=""  class="form-control name" placeholder="Global ID  : " style="text-transform: capitalize;" value ="  Phone  : {{data.0.8}}" readonly> 
+                                    </div>
+                                    <!-- <div id="input" class="col-lg-3">
+                                        <input class="btn btn-blue" type="button" onclick="onButtonClick()">
+                                    </div> -->
+                                    
+                            
+                             
+                         </div>
+                     </div>	<!-- END Add Patient -->
+            </div>
+            </div>
+            <!-- </div> -->
+    
+    
+                <!-- CONTACTS INFO -->
+            
+    </section>
+    
+    
+    
+        <!-- END PAGE CONTENT -->
+        <!-- EXTERNAL SCRIPTS
+	============================================= -->	
+	<script src="/static/user/js/jquery-3.3.1.min.js"></script>
+	<script src="/static/user/js/bootstrap.min.js"></script>	
+	<script src="/static/user/js/modernizr.custom.js"></script>
+	<script src="/static/user/js/jquery.easing.js"></script>
+	<script src="/static/user/js/jquery.appear.js"></script>
+	<script src="/static/user/js/jquery.stellar.min.js"></script>	
+	<script src="/static/user/js/menu.js"></script>
+	<script src="/static/user/js/sticky.js"></script>
+	<script src="/static/user/js/jquery.scrollto.js"></script>
+	<script src="/static/user/js/materialize.js"></script>	
+	<script src="/static/user/js/owl.carousel.min.js"></script>
+	<script src="/static/user/js/jquery.magnific-popup.min.js"></script>	
+	<script src="/static/user/js/imagesloaded.pkgd.min.js"></script>
+	<script src="/static/user/js/isotope.pkgd.min.js"></script>
+	<script src="/static/user/js/hero-form.js"></script>
+	<script src="/static/user/js/contact-form.js"></script>
+	<script src="/static/user/js/comment-form.js"></script>
+	<script src="/static/user/js/appointment-form.js"></script>
+	<script src="/static/user/js/jquery.datetimepicker.full.js"></script>		
+	<script src="/static/user/js/jquery.validate.min.js"></script>	
+	<script src="/static/user/js/jquery.ajaxchimp.min.js"></script>
+	<script src="/static/user/js/wow.js"></script>	
+
+	<!-- Custom Script -->		
+	<script src="/static/user/js/custom.js"></script>
+
+	<script> 
+		new WOW().init();
+	</script>
+
+	<script src="/static/user/js/changer.js"></script>
+	<script defer src="/static/user/js/styleswitch.js"></script>	
+
+{% endblock %}

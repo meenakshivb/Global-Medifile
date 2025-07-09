@@ -1,0 +1,28 @@
+<tr><td>category Name</td><td><select name="category" class="form-control" style="width: 250px;" id="category"><option>select</option>
+{% for c in cat %}
+<option value="{{c.0}}">{{c.1}}</option>
+{% endfor %}
+    </select></td></tr>
+
+<td>Sub category</td><td><select name="subcategory"  style="width:250px;" class="form-control" id="subcategory"><option>select</option></select></td>
+
+
+<script>
+$("#category").change(function () {
+    var c=0;
+    debugger;
+    var entity = new Array();
+    var urls='/subcat/?dataid=' + cid ;
+    $.ajax({
+        urls : urls,
+        success: function(data){
+            $('select[name=subcategory]').empty()
+            $.each(data, function(index, text){
+                $('select[name=subcategory]').append(
+                $('<option></option>').val(index).html(text)
+                );
+            });
+        }
+    })
+})
+</script>

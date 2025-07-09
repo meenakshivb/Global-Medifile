@@ -1,0 +1,545 @@
+{% extends 'st_temp.html' %}
+{% block st_add %}
+
+<!-- FAVICON AND TOUCH ICONS  -->
+<link rel="shortcut icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/user/images/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/user/images/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/user/images/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" href="/static/user/images/apple-touch-icon.png">
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"> 	
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet"> 
+
+<!-- BOOTSTRAP CSS -->
+<link href="/static/user/css/bootstrap.min.css" rel="stylesheet">
+        
+<!-- FONT ICONS -->
+<link href="../../../../use.fontawesome.com/releases/v5.7.2/static/user/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet" crossorigin="anonymous">		
+<link href="/static/user/css/flaticon.css" rel="stylesheet">
+
+<!-- PLUGINS STYLESHEET -->
+<link href="/static/user/css/menu.css" rel="stylesheet">	
+<link id="effect" href="/static/user/css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+<link href="/static/user/css/magnific-popup.css" rel="stylesheet">	
+<link href="/static/user/css/owl.carousel.min.css" rel="stylesheet">
+<link href="/static/user/css/owl.theme.default.min.css" rel="stylesheet">
+<link href="/static/user/css/animate.css" rel="stylesheet">
+<link href="/static/user/css/jquery.datetimepicker.min.css" rel="stylesheet">
+        
+<!-- TEMPLATE CSS -->
+<link href="/static/user/css/style.css" rel="stylesheet">
+
+<!-- RESPONSIVE CSS -->
+<link href="/static/user/css/responsive.css" rel="stylesheet"> 
+
+<!-- BREADCRUMB
+			============================================= -->
+			<div id="breadcrumb" class="division">
+                              <div class="container">
+                                    <div class="row col-lg-8">						
+                                          <div class="col">
+                                                <div class=" breadcrumb-holder">
+      
+                                                      <!-- Breadcrumb Nav -->
+                                                      <nav aria-label="breadcrumb">
+                                                              <ol class="breadcrumb">
+                                                                <li class="breadcrumb-item"><a href="/st_homeview">Home</a></li>
+                                                                <li class="breadcrumb-item active" aria-current="page">Prescription History</li>
+                                                              </ol>
+                                                      </nav>
+      
+                                                      <!-- Title -->
+                                                      <h4 class="h4-sm steelblue-color">Prescription</h4>
+      
+                                                </div>
+                                          </div>
+                                    </div>  <!-- End row -->	
+                              </div>	<!-- End container -->		
+						</div>	<!-- END BREADCRUMB -->	
+						<br>
+					<!-- SEARCH FIELD --> 
+		<!-- <div class="col-md-3 headertopright"> 	
+			<div id="search-field" class="sidebar-div ">								
+				<div class="input-group mb-3">
+					  <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-field">
+					 <div class="input-group-append">
+						<button class="btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+					 </div>
+				</div>
+			</div>
+		</div> -->
+
+      
+			<!-- TABS-2
+			============================================= -->
+			<section id="tabs-2" class="wide-100 tabs-section division">
+				<div class="container">	
+				 	<div class="row">
+
+
+                            <div id="appointment-page" class="wide-60 appointment-page-section division">
+                                    <div class="container">
+                                         <div class="row">
+                            
+                                             <!-- PATIENT DETAILS -->
+                                             <div class="col-lg-10 border" >
+                                                 <div class="txt-block pr-30">
+                            
+                                                     <!-- Title -->
+                                                    <h3 class="h3-md steelblue-color">Your Profile</h3>
+                            
+                                                    <!-- APPOINTMENT FORM -->
+                                                    <div id="appointment-form-holder" class="text-center row appointment-form00"><br><br>
+                                                        <form name="appointmentform00" class="row appointment-form00" method="POST" enctype="multipart/form-data" >
+                            
+                                                            {% csrf_token %}
+                            
+                                                            <!-- Preview Image-->
+                                                            <script type='text/javascript'>
+                                                                function preview_image(event) 
+                                                                {
+                                                                 var reader = new FileReader();
+                                                                 reader.onload = function()
+                                                                 {
+                                                                  var output = document.getElementById('output_image');
+                                                                  output.src = reader.result;
+                                                                 }
+                                                                 reader.readAsDataURL(event.target.files[0]);
+                                                                }
+                                                            </script>
+                                                            <!-- End Preview Image-->
+                            
+                                                             <!-- Contact Form Input -->
+                                                            
+                                                            <!-- <div id="input" class="col-lg-12">
+                                                                <input type="file" name="img" accept="image/*" onchange="preview_image(event)"  required>
+                                                            </div> -->
+                                                            <label style="color: red;">{{msg}}</label>
+                                                        <div id="input-name" class="col-lg-12">
+                                                            <input type="text" name="name"  class="form-control name" placeholder="Enter Name*" style="text-transform: capitalize;" value ="  GLOBAL ID  : {{pt_id}}" readonly> 
+                                                    </div>
+                                                            <div id="input-name" class="col-lg-12">
+                                                                    <input type="text" name="name"  class="form-control name" placeholder="Enter Name*" style="text-transform: capitalize;" value ="  TEST NAME  : {{data1.0.2}}" readonly> 
+                                                            </div>
+                                                            
+                                                            
+                            
+                                                            <div id="input-email" class="col-lg-4">
+                                                                <input type="text" name="email" class="form-control email" value="RESULT  : {{data1.0.3}} " placeholder="Enter Email Id*" readonly> 
+                                                            </div>
+                            
+                                                            <div id="input" class="col-lg-4">
+                                                                <input type="file" name="test_result"  id="output_image"   > 
+                                                                
+															</div>
+															<div id="input-email" class="col-lg-4">
+																<input type="submit" name="test_delete" class="btn btn-blue" value="DELETE"> 
+															</div>
+					
+                                                            <!-- <div id="input" class="col-lg-2">
+                                                                    <center><img src="/media/{{pic.0.0}}" style="width: 100px; height: 100px;" accept="image/*" onchange="preview_image(event)"></center>
+                                                                </div> -->
+                                                                <div id="input-email" class="col-lg-12">
+                                                                        <input type="submit" name="test_submit" class="btn btn-blue" value="ADD RESULT"> 
+                                                                    </div>
+                            
+                                                            
+                                                            <!-- Contact Form Button -->
+                                                            
+                                                            
+                                                        </form> 
+                            
+                                                    </div>	<!-- END APPOINTMENT FORM -->
+                            
+                                                    <!-- Text -->
+                                                    </p>
+                                                    
+                                                     
+                                                 </div>
+                                             </div>	<!-- END Add Patient -->
+                                    </div>
+                                    </div>
+                                    </div>
+                            
+                            
+                                        <!-- CONTACTS INFO -->
+                                    </div>
+					</div>	<!-- End row -->	
+				</div>	<!-- End container -->	
+			</section>	<!-- END TABS-2 -->
+
+<!-- EXTERNAL SCRIPTS
+		============================================= -->	
+		<script src="/static/user/js/jquery-3.3.1.min.js"></script>
+		<script src="/static/user/js/bootstrap.min.js"></script>	
+		<script src="/static/user/js/modernizr.custom.js"></script>
+		<script src="/static/user/js/jquery.easing.js"></script>
+		<script src="/static/user/js/jquery.appear.js"></script>
+		<script src="/static/user/js/jquery.stellar.min.js"></script>	
+		<script src="/static/user/js/menu.js"></script>
+		<script src="/static/user/js/sticky.js"></script>
+		<script src="/static/user/js/jquery.scrollto.js"></script>
+		<script src="/static/user/js/materialize.js"></script>	
+		<script src="/static/user/js/owl.carousel.min.js"></script>
+		<script src="/static/user/js/jquery.magnific-popup.min.js"></script>	
+		<script src="/static/user/js/imagesloaded.pkgd.min.js"></script>
+		<script src="/static/user/js/isotope.pkgd.min.js"></script>
+		<script src="/static/user/js/hero-form.js"></script>
+		<script src="/static/user/js/contact-form.js"></script>
+		<script src="/static/user/js/comment-form.js"></script>
+		<script src="/static/user/js/appointment-form.js"></script>
+		<script src="/static/user/js/jquery.datetimepicker.full.js"></script>		
+		<script src="/static/user/js/jquery.validate.min.js"></script>	
+		<script src="/static/user/js/jquery.ajaxchimp.min.js"></script>
+		<script src="/static/user/js/wow.js"></script>	
+	
+		<!-- Custom Script -->		
+		<script src="../static/user/js/custom.js"></script>
+
+		<script> 
+			new WOW().init();
+		</script>
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+		<!-- [if lt IE 9]>
+			<script src="/static/user/js/html5shiv.js" type="text/javascript"></script>
+			<script src="/static/user/js/respond.min.js" type="text/javascript"></script>
+		<![endif] -->
+
+		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->	
+		<!--
+		<script>
+			window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', 'UA-XXXXX-Y', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<script async src='https://www.google-analytics.com/analytics.js'></script>
+		-->
+		<!-- End Google Analytics -->
+
+		<script src="../static/user/js/changer.js"></script>
+		<script defer src="../static/user/js/styleswitch.js"></script>
+		
+		<script>
+            $("#disease").change(function () {
+                var c=0
+                debugger;
+                var entity=new Array();
+				var did = $("#disease option:selected").text();
+				alert(did)
+                var cid = $("#disease").val();
+				alert(cid)
+				document.getElementById("disease_name").innerHTML = did;
+				document.getElementById("disease1").innerHTML = did;
+        
+                //var data = JSON.stringify(entity);
+                                var urls='/diseaseview/?data_id='+cid ;
+                $.ajax({
+                    
+                    url: urls,
+                    
+                    success: function(data){
+						alert(data);
+                        // $('select[name=hospital]').empty()
+                        // $('select[name=hospital]').append( $('<option>select</option>'));
+                        // $.each(data, function(index, text){        
+                                               
+                        //     $('select[name=hospital]').append(
+                                
+                        //     $('<option></option>').val(text[0]).html(text[1])
+                        //     );                       
+                        // });                        
+                        // }     
+
+						$('tbody[id=tt22]').empty()
+                        $.each(data[1], function(index, text){        
+                                               
+                            $('tbody[id=tt22]').append(
+                                  $('<tr></tr>').append(
+                                
+                            $('<td></td>').html(text[0]),
+                            $('<td></td>').html('<a target="_blank" href="/media/'+text[1]+'">'+text[1]+'</a>'),
+                            $('<td></td>').html('<a href="#" title="'+text[2]+'" onclick="dataadd(this.title)">Update</a>'),
+                            $('<td></td>').html('<a href="/resultdeleteview?test_id='+text[2]+'" onclick="datadelete()">DELETE</a>'),
+                            // $('<td></td>').html(text[2]),
+                            // $('<td></td>').html(text[2]),
+                                  )
+                            );                       
+                        });                        
+						
+
+						$('tbody[id=tt11]').empty()
+                        $.each(data[0], function(index, text){        
+                                               
+                            $('tbody[id=tt11]').append(
+                                  $('<tr></tr>').append(
+                                
+                            $('<td></td>').html(text[0]),
+                            $('<td></td>').html(text[1]),
+                            $('<td></td>').html(text[2]),
+                            // $('<td></td>').html(text[2]),
+                                  )
+                            );                       
+                        });                        
+                        }                   
+        
+                    })
+                
+                })
+            
+        
+		</script>
+
+
+<script>
+	function msg(l)
+	{
+		var m=l;
+		alert(m);
+		
+		document.getElementById("test_add1").value=m;
+	}
+		function dataadd(value)
+		{
+			alert("hai")
+			var c=0
+			debugger;
+			var entity=new Array();
+			// var did = $("#disease option:selected").text();
+			// alert(did)
+			var cid =value;
+			alert(cid);
+		data=document.getElementById("f1").value;
+		alert(data)
+		if(data=="")
+		alert('pls select afile');
+
+			// document.getElementById("disease_name").innerHTML = did;
+			// document.getElementById("disease1").innerHTML = did;
+	
+			//var data = JSON.stringify(entity);
+							var urls='/result_addview/?data_id='+cid+'&data='+data;
+			$.ajax({
+				
+				url: urls,
+				
+				success: function(data){
+				
+					// $('select[name=hospital]').empty()
+					// $('select[name=hospital]').append( $('<option>select</option>'));
+					// $.each(data, function(index, text){        
+										   
+					//     $('select[name=hospital]').append(
+							
+					//     $('<option></option>').val(text[0]).html(text[1])
+					//     );                       
+					// });                        
+					// }     
+
+					$('tbody[id=tt22]').empty()
+					$.each(data, function(index, text){        
+										   
+						$('tbody[id=tt22]').append(
+							  $('<tr></tr>').append(
+							
+						$('<td></td>').html(text[0]),
+						$('<td></td>').html('<a target="_blank" href="/media/'+text[1]+'">'+text[1]+'</a>'),
+						$('<td></td>').html('<input title="'+text[3]+'" type="file" id="test_add">'),
+						$('<td></td>').html('<a href="/resultdeleteview?test_id='+text[2]+'">DELETE</a>'),
+						// $('<td></td>').html(text[2]),
+						// $('<td></td>').html(text[2]),
+							  )
+						);                       
+					});                        
+					
+
+					// $('tbody[id=tt11]').empty()
+					// $.each(data[0], function(index, text){        
+										   
+					// 	$('tbody[id=tt11]').append(
+					// 		  $('<tr></tr>').append(
+							
+					// 	$('<td></td>').html(text[0]),
+					// 	$('<td></td>').html(text[1]),
+					// 	$('<td></td>').html(text[2]),
+					// 	$('<td></td>').html(text[2]),
+					// 		  )
+					// 	);                       
+					// });                        
+					}                   
+	
+				})
+			
+			}
+		
+	
+	</script>
+
+
+<script>
+	function datadelete(value,data)
+	{
+		alert("hai")
+		var c=0
+		debugger;
+		var entity=new Array();
+		// var did = $("#disease option:selected").text();
+		// alert(did)
+		var cid =value;
+		alert(cid)
+		var name = document.getElementById('test_add'); 
+	data=name.files.item.name;
+	
+		alert(data)
+		
+		// document.getElementById("disease_name").innerHTML = did;
+		// document.getElementById("disease1").innerHTML = did;
+
+		//var data = JSON.stringify(entity);
+						var urls='/result_addview/?data_id='+cid+'&data='+data;
+		$.ajax({
+			
+			url: urls,
+			
+			success: function(data){
+			
+				// $('select[name=hospital]').empty()
+				// $('select[name=hospital]').append( $('<option>select</option>'));
+				// $.each(data, function(index, text){        
+									   
+				//     $('select[name=hospital]').append(
+						
+				//     $('<option></option>').val(text[0]).html(text[1])
+				//     );                       
+				// });                        
+				// }     
+
+				$('tbody[id=tt22]').empty()
+				$.each(data, function(index, text){        
+									   
+					$('tbody[id=tt22]').append(
+						  $('<tr></tr>').append(
+						
+					$('<td></td>').html(text[0]),
+					$('<td></td>').html('<a target="_blank" href="/media/'+text[1]+'">'+text[1]+'</a>'),
+					$('<td></td>').html('<input title="'+text[3]+'" type="file" id="test_add">'),
+					$('<td></td>').html('<a href="/resultdeleteview?test_id='+text[3]+'">DELETE</a>'),
+					// $('<td></td>').html(text[2]),
+					// $('<td></td>').html(text[2]),
+						  )
+					);                       
+				});                        
+				
+
+				// $('tbody[id=tt11]').empty()
+				// $.each(data[0], function(index, text){        
+									   
+				// 	$('tbody[id=tt11]').append(
+				// 		  $('<tr></tr>').append(
+						
+				// 	$('<td></td>').html(text[0]),
+				// 	$('<td></td>').html(text[1]),
+				// 	$('<td></td>').html(text[2]),
+				// 	$('<td></td>').html(text[2]),
+				// 		  )
+				// 	);                       
+				// });                        
+				}                   
+
+			})
+		
+		}
+	
+
+</script>
+
+
+<script>
+	$("#search_id").change(function () {
+		var c=0
+		debugger;
+		var entity=new Array();
+		var cid = $("#search_id").val();
+
+		//var data = JSON.stringify(entity);
+						var urls='/testtab/?value='+cid ;
+		$.ajax({
+			
+			url: urls,
+			
+			success: function(data){
+
+				 
+		  alert(data);
+				// $('select[name=hospital]').empty()
+				// $('select[name=hospital]').append( $('<option>select</option>'));
+				$('tbody[id=t11]').empty()
+				$.each(data, function(index, text){        
+									   
+					$('tbody[id=t11]').append(
+						  $('<tr></tr>').append(
+						
+					$('<td></td>').html(text[1]),
+					$('<td></td>').html(text[0]),
+					$('<td></td>').html('<a target="_blank" href="/dr_prescribeview?name='+text[0]+'&pt_id='+text[1]+'&dt={{dt}}" >CONSULTING</a>'),
+			 
+				//     $('<td></td>').html(text[3]),
+				//     $('<td></td>').html(text[2]),
+						  )
+					);                       
+				});                        
+				}                       
+
+			})
+		
+		})
+	
+
+</script>
+
+<script>
+	$("#search_btn_id").click(function () {
+		var c=0
+		debugger;
+		var entity=new Array();
+		var cid = $("#search_id").val();
+
+		//var data = JSON.stringify(entity);
+						var urls='/testtab/?value='+cid ;
+		$.ajax({
+			
+			url: urls,
+			
+			success: function(data){
+
+				 
+		  alert(data);
+				// $('select[name=hospital]').empty()
+				// $('select[name=hospital]').append( $('<option>select</option>'));
+				$('tbody[id=t11]').empty()
+				$.each(data, function(index, text){        
+									   
+					$('tbody[id=t11]').append(
+						  $('<tr></tr>').append(
+						
+					$('<td></td>').html(text[1]),
+					$('<td></td>').html(text[0]),
+					$('<td></td>').html('<a target="_blank" href="/dr_prescribeview"?name='+text[0]+'&pt_id='+text[1]+'&dt={{dt}} >CONSULTING</a>'),
+				//     $('<td></td>').html(text[3]),
+				//     $('<td></td>').html(text[2]),
+						  )
+					);                       
+				});                        
+				}                       
+
+			})
+		
+		})
+	
+
+</script>
+
+{% endblock %}

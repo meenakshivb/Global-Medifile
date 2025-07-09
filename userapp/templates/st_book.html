@@ -1,0 +1,460 @@
+{% extends 'st_temp.html' %}
+{% block st_book %}
+
+<!-- FAVICON AND TOUCH ICONS  -->
+<link rel="shortcut icon" href="../static/user/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../static/user/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="152x152" href="../static/user/images/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../static/user/images/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../static/user/images/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" href="../static/user/images/apple-touch-icon.png">
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"> 	
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet"> 
+
+<!-- BOOTSTRAP CSS -->
+<link href="../static/user/css/bootstrap.min.css" rel="stylesheet">
+        
+<!-- FONT ICONS -->
+<link href="../../../../use.fontawesome.com/releases/v5.7.2/static/user/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet" crossorigin="anonymous">		
+<link href="../static/user/css/flaticon.css" rel="stylesheet">
+
+<!-- PLUGINS STYLESHEET -->
+<link href="../static/user/css/menu.css" rel="stylesheet">	
+<link id="effect" href="../static/user/css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+<link href="../static/user/css/magnific-popup.css" rel="stylesheet">	
+<link href="../static/user/css/owl.carousel.min.css" rel="stylesheet">
+<link href="../static/user/css/owl.theme.default.min.css" rel="stylesheet">
+<link href="../static/user/css/animate.css" rel="stylesheet">
+<link href="../static/user/css/jquery.datetimepicker.min.css" rel="stylesheet">
+        
+<!-- TEMPLATE CSS -->
+<link href="../static/user/css/style.css" rel="stylesheet">
+
+<!-- RESPONSIVE CSS -->
+<link href="../static/user/css/responsive.css" rel="stylesheet"> 
+
+
+
+<!-- BREADCRUMB
+			============================================= -->
+			<div id="breadcrumb" class="division">
+                              <div class="container">
+                                    <div class="row col-lg-8">						
+                                          <div class="col">
+                                                <div class=" breadcrumb-holder">
+      
+                                                      <!-- Breadcrumb Nav -->
+                                                      <nav aria-label="breadcrumb">
+                                                              <ol class="breadcrumb">
+                                                                <li class="breadcrumb-item"><a href="/st_homeview">Home</a></li>
+                                                                <li class="breadcrumb-item active" aria-current="page">Book Appointment</li>
+                                                              </ol>
+                                                      </nav>
+      
+                                                      <!-- Title -->
+                                                      <h4 class="h4-sm steelblue-color">Book Appointment</h4>
+      
+                                                </div>
+                                          </div>
+                                    </div>  <!-- End row -->	
+                              </div>	<!-- End container -->		
+                        </div>	<!-- END BREADCRUMB -->	
+      
+    
+        
+      
+<!-- TABS-2
+			============================================= -->
+			<section id="tabs-2" class="wide-100 tabs-section division">
+				<div class="container">	
+				 	<div class="row">
+
+
+				 		<!-- TABS NAVIGATION -->
+				 		<div class="col-lg-3">
+							<div id="tabs-nav" class="list-group text-center clearfix">
+							    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+
+							    	<!-- TAB-1 LINK -->
+								  	<li class="nav-item icon-xs">
+								    	<a class="nav-link " id="tab11-list" data-toggle="pill" href="#tab-11" role="tab" aria-controls="tab-11" aria-selected="true">
+                                                            <i class="fas fa-angle-double-right blue-color"></i>Book appointment
+                                                      </a></li>
+                                                      
+								  	
+
+								  	<!-- TAB-2 LINK -->
+									<li class="nav-item icon-xs">
+									    <a class="nav-link active" id="tab12-list" data-toggle="pill" href="#tab-12" role="tab" aria-controls="tab-12" aria-selected="false">
+                                            Status
+									    </a>
+									</li>
+
+									<!-- TAB-3 LINK -->
+									<!-- <li class="nav-item icon-xs">
+									    <a class="nav-link" id="tab13-list" data-toggle="pill" href="#tab-13" role="tab" aria-controls="tab-13" aria-selected="false">
+											All History
+									    </a>
+									</li> -->
+
+									<!-- TAB-4 LINK -->
+									<!-- <li class="nav-item icon-xs">
+									    <a class="nav-link" id="tab14-list" data-toggle="pill" href="#tab-14" role="tab" aria-controls="tab-14" aria-selected="false">
+									       X-Ray Diagnostic
+									    </a>
+									</li> -->
+
+								</ul>
+
+							</div>	
+						</div>	<!-- END TABS NAVIGATION -->
+
+                                   <!-- TABS CONTENT -->
+				 		<div class="col-lg-8 ">
+							<div class="tab-content" id="pills-tabContent">
+
+                                                  
+									<!-- DOCTOR TAB-->
+									<div class="tab-pane fade show " id="tab-11" role="tabpanel" aria-labelledby="tab11-list">
+										<div class="row">
+									<!-- SERVICE DETAILS -->
+				 		            <div class="col-lg-11 border">
+                                
+   
+                                    <!-- Title -->
+                                   <h4 class="h3-md steelblue-color">Book an Appointment</h4>
+   
+                                   <!-- Text -->
+                                   <p>Fill out the Mandatory*
+                                   </p>
+   
+                                   
+
+
+                                   <!-- APPOINTMENT FORM -->
+                                   <div id="appointment-form00-holder" class="text-center">
+                                       <label style="color: red;;">{{alert1}}</label>
+                                       <form name="appointmentform00" class="row appointment-form00" method="POST" enctype="multipart/form-data" onchange="change()">
+                                            {% csrf_token %}
+                                           <!-- Form Select -->
+                                                <p>Department Name*</p>
+                                                <div id="input-department" class="col-md-12 input-department">
+                                               <select id="inlineFormCustomSelect1" name="department" class="custom-select department"  required>
+                                                   <option value="">Select Department</option>  
+                                                   {% for d in dpt %}
+                                                     <option>{{d.0}}</option>
+                                                    {% endfor %}
+                                                    <option>Others</option>  
+                                               </select>
+                                           </div>
+                                           
+                                           <!-- Form Select -->
+                                                <p>Hospital Name*</p>
+                                                <div id="input-patient" class="col-md-12 input-patient">
+                                                <select id="inlineFormCustomSelect2" name="hospital" class="custom-select patient" required>
+                                                    <option value="">Select Hospital</option>
+                                                   
+                                                </select>
+                                            </div>
+
+                                            <!-- Contact Form Input -->
+                                            <p>Booking Date*</p>
+                                            <div id="input" class="col-lg-12">
+                                                <input id="datetimepicker0"  type="date" name="date" min="{{dt}}" class="form-control date" placeholder="Appointment Date" required> 
+                                            </div> 
+<!--                                             
+                                            <p>Booking Time*</p>
+                                            <div class="col-lg-12 form-group">
+                                            <div id="input" class="input-group date" id='datetimepicker3'>
+                                                <input   type="text" name="time" class="form-control " placeholder="Appointment time" required> 
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-time"></span>
+                                                </span>
+                                            </div> 
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                    $('#datetimepicker3').datetimepicker({
+                                                        format: 'LT'
+                                                    });
+                                                });
+                                            </script>
+                                            </div> -->
+
+                                            <!-- <div class="container">
+                                                <div class="row">
+                                                    <div class='col-sm-6'>
+                                                        <div class="form-group">
+                                                            <div class='input-group date' id='datetimepicker3'>
+                                                                <input type='text' class="form-control" />
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-time"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <script type="text/javascript">
+                                                        $(function () {
+                                                            $('#datetimepicker3').datetimepicker({
+                                                                format: 'LT'
+                                                            });
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div> -->
+                                            
+
+                                           <!-- Form Select -->
+                                                <p>Doctor Name*</p>
+                                                <div id="input-doctor" class="col-md-12 input-doctor">
+                                               <select id="inlineFormCustomSelect3" name="doctor" class="custom-select doctor" required>
+                                                <option value="">Select Doctor</option>
+                                               </select>
+                                           </div>
+
+                                           <p>Token Number*</p>
+                                           <div id="input-name" class="col-lg-12">
+                                            <input type="text"  id="token" name="token1" class="form-control name"  readonly="readonly" placeholder="Token Number"> 
+                                            </div>  
+                                        
+                                            <!-- Form Select -->
+                                            <p>Patient ID*</p>
+                                           <div id="input-patient" class="col-md-12 input-patient">
+                                               
+                                               <select id="inlineFormCustomSelect3" name="patient" class="custom-select patient" required>
+                                                   <option value="">Have You Visited Us Before?*</option>
+                                                   <option>New Patient</option>
+                                                   <option>Returning Patient</option>
+                                                   <option>Other</option>
+                                               </select>
+                                           </div>
+   
+                                           <!-- Contact Form Input -->
+                                           <div id="input-name" class="col-lg-12">
+                                               <input type="text" name="name" class="form-control name" placeholder="Enter Patient's Name  :  " > 
+                                           </div>
+                                                   
+                                           <div id="input" class="col-lg-12">
+                                               <input type="text" name="pt_id" class="form-control" placeholder="Enter Global ID  :"  > 
+                                           </div>
+   
+                                           <div id="input-phone" class="col-lg-12">
+                                               <input type="tel" name="phone" class="form-control phone" placeholder="Enter Your Phone Number*" required> 
+                                           </div>						                          
+                                                  
+                                                                                                                 
+                                           <!-- Contact Form Button -->
+                                           <div class="col-lg-12 form-btn">  
+                                               <button type="submit" id="b1" class="btn btn-blue blue-hover submit">Request an Appointment</button> 
+                                           </div>
+                                                                                         
+                                           <!-- Contact Form Message -->
+                                           <div class="col-lg-12 appointment-form-msg text-center">
+                                               <div class="sending-msg"><span class="loading"></span></div>
+                                           </div>  
+                                                                     
+                                       </form> 
+   
+                                   </div>	<!-- END APPOINTMENT FORM -->
+   
+                                                                     
+                                    
+                               </div>	<!-- END SERVICE DETAILS -->
+																</div>
+															</div>
+                                                        
+                                                            
+                                <!-- STAFF TAB -->
+                                <div class="tab-pane fade show  active" id="tab-12" role="tabpanel" aria-labelledby="tab12-list">
+                                        <div class="row">
+         
+         
+                                              <!-- PRICING-2 HOLDER -->
+                                              <div class="col-lg-12">
+                                                    <div class="txt-block pr-30">
+                                                          
+                                                                                                                                                                   
+                                                          <!-- Plan Title  -->
+                                                         <h5 class="h5-md steelblue-color">Status</h5>
+         
+                                                         <div class="pricing-table mb-40">								
+                                                               <table class="table table-hover">
+                                                                     <thead>
+                                                                         <tr>
+                                                                                 <th scope="col">Hospital name </th>
+                                                                                 <th scope="col">Doctor name</th>
+                                                                                 <th scope="col">Booking Date</th>
+                                                                                 <th scope="col">Token No.</th>
+                                                                         </tr>
+                                                                     </thead>
+                                                                     <tbody>
+                                                                         {% for d in data1 %}
+                                                                         <tr ><td>{{d.0}}</td><td>{{d.1}}</td><td>{{d.2}}</td><td>{{d.3}}</td>
+                                                                                 
+                                                                         </tr>
+                                                                         {% endfor %}
+                                                                                 
+                                                                     </tbody>
+                                                               </table>
+                                                               
+                                                         </div>
+                                                                                                                               
+      
+                                                    </div>
+                                              </div>	<!-- END PRICING-2 HOLDER -->
+                                                                                       
+                                       </div>	<!-- END TABS CONTENT -->
+                                 </div>
+
+                            </div>
+                        </div>
+                              
+					</div>	<!-- End row -->	
+				</div>	<!-- End container -->	
+			</section>	<!-- END TABS-2 -->
+
+<!-- EXTERNAL SCRIPTS
+		============================================= -->	
+		<script src="../static/user/js/jquery-3.3.1.min.js"></script>
+		<script src="../static/user/js/bootstrap.min.js"></script>	
+		<script src="../static/user/js/modernizr.custom.js"></script>
+		<script src="../static/user/js/jquery.easing.js"></script>
+		<script src="../static/user/js/jquery.appear.js"></script>
+		<script src="../static/user/js/jquery.stellar.min.js"></script>	
+		<script src="../static/user/js/menu.js"></script>
+		<script src="../static/user/js/sticky.js"></script>
+		<script src="../static/user/js/jquery.scrollto.js"></script>
+		<script src="../static/user/js/materialize.js"></script>	
+		<script src="../static/user/js/owl.carousel.min.js"></script>
+		<script src="../static/user/js/jquery.magnific-popup.min.js"></script>	
+		<script src="../static/user/js/imagesloaded.pkgd.min.js"></script>
+		<script src="../static/user/js/isotope.pkgd.min.js"></script>
+		<script src="../static/user/js/hero-form.js"></script>
+		<script src="../static/user/js/contact-form.js"></script>
+		<script src="../static/user/js/comment-form.js"></script>
+		<script src="../static/user/js/appointment-form.js"></script>
+		<!-- <script src="../static/user/js/jquery.datetimepicker.full.js"></script>		 -->
+		<script src="../static/user/js/jquery.validate.min.js"></script>	
+		<script src="../static/user/js/jquery.ajaxchimp.min.js"></script>
+		<script src="../static/user/js/wow.js"></script>	
+	
+		<!-- Custom Script -->		
+		<script src="../static/user/js/custom.js"></script>
+
+		<script> 
+			new WOW().init();
+		</script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  
+		<script src="../static/user/js/changer.js"></script>
+        <script defer src="../static/user/js/styleswitch.js"></script>
+
+        <script>
+            $("#inlineFormCustomSelect1").change(function () {
+                var c=0
+                debugger;
+                var entity=new Array();
+                var cid = $("#inlineFormCustomSelect1").val();
+        
+                //var data = JSON.stringify(entity);
+                                var urls='/subhosview/?dataid='+cid ;
+                $.ajax({
+                    
+                    url: urls,
+                    
+                    success: function(data){
+                        $('select[name=hospital]').empty()
+                        $('select[name=hospital]').append( $('<option>select</option>'));
+                        $.each(data, function(index, text){        
+                                               
+                            $('select[name=hospital]').append(
+                                
+                            $('<option></option>').val(text[0]).html(text[1])
+                            );                       
+                        });                        
+                        }                       
+        
+                    })
+                
+                })
+            
+        
+        </script>
+
+        <!-- Script for listing Hospital -->
+        <script>
+            $("#inlineFormCustomSelect2").change(function () {
+                var c=0
+                debugger;
+                var entity=new Array();
+                var cid = $("#inlineFormCustomSelect2").val();
+        var depid=$("#inlineFormCustomSelect1").val();
+                //var data = JSON.stringify(entity);
+                                var urls='/subdocview/?dataid='+cid+'&depid='+depid;
+                $.ajax({
+                    
+                    url: urls,
+                    
+                    success: function(data){
+                      
+                        $('select[name=doctor]').empty()
+                        $('select[name=doctor]').append( $('<option>select</option>'));
+                        $.each(data, function(index, text){   
+                                            
+                            $('select[name=doctor]').append(
+                                
+                            $('<option></option>').val(text[0]).html(text[1])
+                            );                       
+                        });                        
+                        }                       
+        
+                    })
+                
+                })
+            
+        
+        </script>
+
+        <!-- Script for listing Hospital -->
+        <script>
+            $("#inlineFormCustomSelect3").change(function () {
+                var c=0
+                debugger;
+                var entity=new Array();
+                var cid = $("#inlineFormCustomSelect3").val();
+                var date=$("#datetimepicker0").val();
+                //var data = JSON.stringify(entity);
+                                var urls='/token_detail/?dataid='+cid+'&date='+date ;
+                $.ajax({
+                    
+                    url: urls,
+                    
+                    success: function(data){
+                        alert(data);
+                        if(data=="No Tokens available.")
+                        {
+                            document.getElementById("b1").disabled = true;
+
+                        }
+                        else 
+                        {
+                            document.getElementById("b1").disabled = false;
+                        }
+                        $("#token").val(data)   
+                                         
+                        }                       
+        
+                    })
+                
+                })
+            
+        
+        </script>
+    <script>
+            if ( window.history.replaceState ) {
+                window.history.replaceState( null, null, window.location.href );
+            }
+    </script>
+
+{% endblock %}
